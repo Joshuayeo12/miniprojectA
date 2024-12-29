@@ -18,8 +18,11 @@ import java.util.Map;
 @RequestMapping("/api")
 public class ImportRestController {
 
-    @Autowired
-    ScheduleService scheduleService;
+    private final ScheduleService scheduleService;
+
+    public ImportRestController(ScheduleService scheduleService) {
+        this.scheduleService = scheduleService;
+    }
 
     @GetMapping("/flights")
     public List<Map<String, Object>> getFlights(@RequestParam String iataCode, @RequestParam String type) {

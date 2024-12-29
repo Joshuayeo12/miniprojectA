@@ -13,8 +13,11 @@ import java.util.Map;
 @Controller
 public class ScheduleController {
 
-    @Autowired
-    private ScheduleService scheduleService;
+    private final ScheduleService scheduleService;
+
+    public ScheduleController(ScheduleService scheduleService) {
+        this.scheduleService = scheduleService;
+    }
 
     @GetMapping("/flightschedule")
     public String getFlightSchedule(

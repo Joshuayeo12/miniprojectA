@@ -21,7 +21,7 @@ public class LoginController {
     @GetMapping("/login")
     public String showLoginPage(Model model) {
         model.addAttribute("loginModel", new LoginModel());
-        return "/login";
+        return "login"; // Correctly return the Thymeleaf template name
     }
 
     @PostMapping("/login")
@@ -44,7 +44,6 @@ public class LoginController {
 
         // Set session attribute and redirect to airport info
         session.setAttribute("userEmail", loginModel.getEmail());
-        return "redirect:/airportinfo/" + loginModel.getEmail();
+        return "redirect:/airportinfo/" + loginModel.getEmail(); // Redirect to airportinfo
     }
-
 }

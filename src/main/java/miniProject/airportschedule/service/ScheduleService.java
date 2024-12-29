@@ -17,7 +17,7 @@ public class ScheduleService {
 
     private static final String API_URL = "https://aviation-edge.com/v2/public/timetable";
 
-    @Value("${flightapi.api_key}")
+    @Value("${flightapi.api_key:NOT_SET}")
     private String apiKey;
 
     /**
