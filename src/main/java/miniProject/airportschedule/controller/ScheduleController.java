@@ -54,7 +54,7 @@ public class ScheduleController {
         model.addAttribute("type", type);
         model.addAttribute("status", status != null ? status : "All");
 
-        return "FlightSchedule";
+        return "flightschedule";
     }
 }
 

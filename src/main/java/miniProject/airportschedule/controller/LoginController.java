@@ -18,10 +18,10 @@ public class LoginController {
         this.accountService = accountService;
     }
 
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String showLoginPage(Model model) {
-        model.addAttribute("LoginModel", new LoginModel());
-        return "/Login";
+        model.addAttribute("loginModel", new LoginModel());
+        return "/login";
     }
 
     @PostMapping("/login")
@@ -32,19 +32,19 @@ public class LoginController {
             HttpSession session) {
 
         if (bindingResult.hasErrors()) {
-            return "Login"; // Reload the page if validation fails
+            return "login"; // Reload the page if validation fails
         }
 
         String storedPassword = accountService.findPasswordByUsername(loginModel.getEmail());
         if (storedPassword == null || !storedPassword.equals(loginModel.getPassword())) {
             // Set error message if email or password is incorrect
             model.addAttribute("error", "Invalid email or password. Please try again.");
-            return "Login"; // Reload the login page with the error message
+            return "login"; // Reload the login page with the error message
         }
 
         // Set session attribute and redirect to airport info
         session.setAttribute("userEmail", loginModel.getEmail());
-        return "redirect:/AirportInfo/" + loginModel.getEmail();
+        return "redirect:/airportinfo/" + loginModel.getEmail();
     }
 
 }

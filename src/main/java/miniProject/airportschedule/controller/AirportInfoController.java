@@ -25,7 +25,7 @@ public class AirportInfoController {
 
         model.addAttribute("email", loggedInEmail);
         model.addAttribute("airportInfoModel", new AirportInfoModel());
-        return "/AirportInfo"; // Render AirportInfo.html
+        return "airportinfo"; // Render airportinfo.html
     }
 
     @PostMapping("/flightschedule")
@@ -35,7 +35,7 @@ public class AirportInfoController {
             Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "AirportInfo";
+            return "airportinfo";
         }
 
         // Set status to null if "all" is selected, so it fetches all flights

@@ -20,7 +20,7 @@ public class AccountCreationController {
     @GetMapping("/account-creation")
     public String showAccountCreationPage(Model model) {
         model.addAttribute("accountCreationModel", new AccountCreationModel());
-        return "AccountCreation"; // Render account creation form
+        return "accountcreation"; // Render account creation form
     }
 
     @PostMapping("/account-creation")
@@ -30,7 +30,7 @@ public class AccountCreationController {
             Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "AccountCreation"; // Return the form with validation errors
+            return "accountcreation"; // Return the form with validation errors
         }
 
         try {
@@ -38,7 +38,7 @@ public class AccountCreationController {
             model.addAttribute("success", "Account successfully created! You can now login.");
         } catch (Exception e) {
             model.addAttribute("error", "An error occurred: " + e.getMessage());
-            return "AccountCreation"; // Return the form with error message
+            return "accountcreation"; // Return the form with error message
         }
 
         return "redirect:/login"; // Redirect to login page after successful account creation
