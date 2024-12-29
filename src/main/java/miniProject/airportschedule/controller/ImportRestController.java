@@ -3,7 +3,6 @@ package miniProject.airportschedule.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import miniProject.airportschedule.service.ScheduleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +39,7 @@ public class ImportRestController {
             PrintWriter writer = response.getWriter();
             writer.println("Method,URL,Description,Parameters,Sample Response");
 
-            // Sample API Documentation (You can fetch this dynamically if needed)
+
             List<Map<String, Object>> endpoints = List.of(
                     Map.of(
                             "method", "GET",

@@ -22,7 +22,7 @@ public class AccountCreationController {
     @GetMapping("/account-creation")
     public String showAccountCreationPage(Model model) {
         model.addAttribute("accountCreationModel", new AccountCreationModel());
-        return "accountcreation"; // Render account creation form
+        return "accountcreation";
     }
 
     @PostMapping("/account-creation")
@@ -32,7 +32,7 @@ public class AccountCreationController {
             Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "accountcreation"; // Return the form with validation errors
+            return "accountcreation"; // For validation errors
         }
 
         try {

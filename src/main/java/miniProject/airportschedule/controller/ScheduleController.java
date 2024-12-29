@@ -1,7 +1,6 @@
 package miniProject.airportschedule.controller;
 
 import miniProject.airportschedule.service.ScheduleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,7 @@ public class ScheduleController {
             @RequestParam(defaultValue = "10") int size,
             Model model) {
 
-        // If "all" is selected for status, treat it as null to fetch all flights
+        // If "all" is selected for status, fetch all flights
         if ("all".equalsIgnoreCase(status)) {
             status = null;
         }

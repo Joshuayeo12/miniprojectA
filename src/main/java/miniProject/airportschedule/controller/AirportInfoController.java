@@ -1,6 +1,5 @@
 package miniProject.airportschedule.controller;
 
-
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import miniProject.airportschedule.model.AirportInfoModel;
@@ -20,7 +19,7 @@ public class AirportInfoController {
 
         String loggedInEmail = (String) session.getAttribute("userEmail");
         if (loggedInEmail == null || !loggedInEmail.equals(email)) {
-            return "redirect:/login"; // Redirect to login if session is invalid
+            return "redirect:/login";
         }
 
         model.addAttribute("email", loggedInEmail);

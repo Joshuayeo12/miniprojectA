@@ -19,12 +19,10 @@
 
     <!-- Display Success Message -->
     <div class="alert alert-success text-center" role="alert" th:if="${success}" th:text="${success}">
-        <!-- Success message displayed here -->
     </div>
 
     <!-- Display Error Message -->
     <div class="alert alert-danger text-center" role="alert" th:if="${error}" th:text="${error}">
-        <!-- Error message displayed here -->
     </div>
 
     <form th:action="@{/account-creation}" th:object="${accountCreationModel}" method="post" class="needs-validation text-center" novalidate>
