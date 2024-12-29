@@ -25,7 +25,7 @@ public class AirportInfoController {
 
         model.addAttribute("email", loggedInEmail);
         model.addAttribute("airportInfoModel", new AirportInfoModel());
-        return "AirportInfo"; // Render AirportInfo.html
+        return "/AirportInfo"; // Render AirportInfo.html
     }
 
     @PostMapping("/flightschedule")

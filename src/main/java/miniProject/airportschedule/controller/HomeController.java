@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String home() {
-        return "redirect:/login"; // Redirect to /login
+        return "redirect:/Login"; // Redirect to /login
     }
 }
