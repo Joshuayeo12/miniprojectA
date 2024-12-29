@@ -1,6 +1,7 @@
 package miniProject.airportschedule.service;
 
 import miniProject.airportschedule.repo.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -9,6 +10,7 @@ public class AccountService {
 
     private final AccountRepository accountRepository;
 
+    @Autowired
     public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
@@ -22,7 +24,6 @@ public class AccountService {
             throw new IllegalArgumentException("Username already exists");
         }
 
-        // Store password as plain text (not recommended for production)
         accountRepository.save(username, password);
     }
 

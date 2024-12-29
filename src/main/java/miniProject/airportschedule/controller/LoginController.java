@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import miniProject.airportschedule.model.LoginModel;
 import miniProject.airportschedule.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,7 @@ public class LoginController {
 
     private final AccountService accountService;
 
+    @Autowired
     public LoginController(AccountService accountService) {
         this.accountService = accountService;
     }
@@ -21,7 +23,7 @@ public class LoginController {
     @GetMapping("/login")
     public String showLoginPage(Model model) {
         model.addAttribute("loginModel", new LoginModel());
-        return "login"; // Correctly return the Thymeleaf template name
+        return "login";
     }
 
     @PostMapping("/login")
@@ -37,13 +39,12 @@ public class LoginController {
 
         String storedPassword = accountService.findPasswordByUsername(loginModel.getEmail());
         if (storedPassword == null || !storedPassword.equals(loginModel.getPassword())) {
-            // Set error message if email or password is incorrect
             model.addAttribute("error", "Invalid email or password. Please try again.");
             return "login"; // Reload the login page with the error message
         }
 
-        // Set session attribute and redirect to airport info
+        // Set session attribute and redirect to the airport info page
         session.setAttribute("userEmail", loginModel.getEmail());
-        return "redirect:/airportinfo/" + loginModel.getEmail(); // Redirect to airportinfo
+        return "redirect:/airportinfo/" + loginModel.getEmail();
     }
 }

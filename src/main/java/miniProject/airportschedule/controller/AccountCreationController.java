@@ -3,6 +3,7 @@ package miniProject.airportschedule.controller;
 import jakarta.validation.Valid;
 import miniProject.airportschedule.model.AccountCreationModel;
 import miniProject.airportschedule.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,7 @@ public class AccountCreationController {
 
     private final AccountService accountService;
 
+    @Autowired
     public AccountCreationController(AccountService accountService) {
         this.accountService = accountService;
     }
@@ -35,7 +37,7 @@ public class AccountCreationController {
 
         try {
             accountService.createAccount(accountCreationModel.getEmail(), accountCreationModel.getPassword());
-            model.addAttribute("success", "Account successfully created! You can now login.");
+            model.addAttribute("success", "Account successfully created! You can now log in.");
         } catch (Exception e) {
             model.addAttribute("error", "An error occurred: " + e.getMessage());
             return "accountcreation"; // Return the form with error message
