@@ -1,0 +1,79 @@
+/* General styling for the body */
+body {
+    background-image: url('/images/aerial-view-airport-terminal-parked-600nw-2443542579.jpg'); /* Path to the image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the image fixed when scrolling */
+    background-position: center; /* Centers the image */
+    color: #575353; /* Sets text color to white for readability */
+    font-family: Arial, sans-serif; /* Optional: Choose a font family */
+}
+
+/* Optional overlay for better text readability */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity */
+    z-index: -1; /* Sends the overlay behind the content */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: rgba(26, 31, 113, 0.8); /* Semi-transparent Visa blue */
+    padding: 10px;
+}
+
+.navbar-brand {
+    color: #ffb600 !important; /* Visa gold */
+    font-weight: bold;
+}
+
+/* General container styling */
+.container {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for headers */
+h1 {
+    color: #1a1f71; /* Visa blue */
+    text-align: center;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #1a1f71; /* Visa blue */
+    border-color: #1a1f71;
+}
+
+.btn-primary:hover {
+    background-color: #143057; /* Darker Visa blue on hover */
+    border-color: #143057;
+}
+
+.btn-secondary {
+    background-color: #ffb600; /* Visa gold */
+    border-color: #ffb600;
+}
+
+.btn-secondary:hover {
+    background-color: #d99a00; /* Darker Visa gold on hover */
+    border-color: #d99a00;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(26, 31, 113, 0.8); /* Semi-transparent Visa blue */
+    color: white;
+    margin-top: 20px;
+    border-radius: 0 0 8px 8px;
+}
